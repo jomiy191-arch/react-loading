@@ -1,0 +1,57 @@
+.every-container {
+  background-color: #3b3b6b;
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+}
+
+.every-title {
+  font-size: 4rem;
+  font-weight: 200;
+  margin-bottom: 35px;
+}
+.every-icon {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.every-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* kartalar orasidagi bo‘shliqni kattaroq qildik */
+}
+
+.every-card {
+    margin-top: 20px;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;  
+  gap: 20px; /* ikonka va matn orasini kattaroq qildik */
+  padding: 25px 35px; /* paddingni oshirdik */
+  border-radius: 15px;
+  min-width: 250px;
+  height: 90px; /* kartani kengaytirdik */
+  font-size: 1.6rem; /* matn kattaligi */
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.every-card:hover {
+  transform: translateY(-8px); /* hover effektni kattaroq qildik */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.every-icon {
+  font-size: 2rem; /* ikonka kattaligi */
+}
+
+/* Ranglar (chap chiziq) */
+.red-bg { border-left: 6px solid #ff4d4f; }
+.purple-bg { border-left: 6px solid #7265e6; }
+.yellow-bg { border-left: 6px solid #ffcc00; }
+.green-bg { border-left: 6px solid #52c41a; }
