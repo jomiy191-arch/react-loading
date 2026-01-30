@@ -7,16 +7,17 @@ import headphonesImage from './Images/Bitmap.svg';
 const Catalog = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animatsiya davomiyligi
-      once: true, // bir martta animatsiya
-      easing: 'ease-out-cubic', // yumshoq animatsiya effekti
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic',
     });
   }, []);
 
   return (
-    <div className="Catalog-container">
-      {/* Matn pastdan tepaga */}
-      <div className="content-side" data-aos="fade-up">
+    <div className="Catalog-container" id='demos'>
+
+      {/* Text zoom-in */}
+      <div className="content-side" data-aos="zoom-in">
         <h1 className="title">
           Get noise free <br /> sound everytime
         </h1>
@@ -26,8 +27,9 @@ const Catalog = () => {
         </p>
 
         <div className="features">
-          {/* Chapga harakat */}
-          <div className="card" data-aos="fade-right" data-aos-delay="100">
+
+          {/* Card 1 zoom-right */}
+          <div className="card" data-aos="zoom-in-right" data-aos-delay="150">
             <div className="icon red-bg">■</div>
             <div className="card-text">
               <span className="card-title">50+ Unique Design Blocks</span>
@@ -35,22 +37,24 @@ const Catalog = () => {
             </div>
           </div>
 
-          {/* O‘ngga harakat */}
-          <div className="card" data-aos="fade-left" data-aos-delay="200">
+          {/* Card 2 zoom-left */}
+          <div className="card" data-aos="zoom-in-left" data-aos-delay="250">
             <div className="icon blue-bg">📱</div>
             <div className="card-text">
               <span className="card-title">Mobile First Design</span>
               <span className="card-subtitle">on Every Devices</span>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* Rasm pastdan tepaga biroz sekin */}
-      <div className="image-side" data-aos="fade-up" data-aos-delay="300">
+      {/* Image zoom-out */}
+      <div className="image-side" data-aos="zoom-out" data-aos-delay="300">
         <div className="circle-bg"></div>
         <img src={headphonesImage} alt="Headphones" className="floating-img" />
       </div>
+
     </div>
   );
 };

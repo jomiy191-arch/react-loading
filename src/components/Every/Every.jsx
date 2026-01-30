@@ -27,7 +27,7 @@ const Every = () => {
   }, []);
 
   return (
-    <section className="every-container">
+    <section className="every-container" id="foni">
       <h2 className="every-title">It’s everything you’ll ever need</h2>
 
       {rows.map((row, index) => (

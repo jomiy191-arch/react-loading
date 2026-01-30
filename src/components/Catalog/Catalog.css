@@ -1,17 +1,18 @@
-
 .Catalog-container {
   max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  margin-top: 38px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  min-height: 100vh;
+  gap: 50px;
   position: relative;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
+
+/* ================= TEXT SIDE ================= */
 
 .content-side {
   flex: 1;
@@ -20,7 +21,7 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   color: #1e1e2f;
   line-height: 1.2;
@@ -28,38 +29,39 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: #4a4a60;
   margin-bottom: 40px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
+/* ================= FEATURES ================= */
+
 .features {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .card {
   display: flex;
   align-items: center;
   background: #fff;
-  padding: 20px 25px;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 18px 22px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   cursor: pointer;
-  flex: 1 1 250px;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
-  font-size: 2rem;
-  padding: 15px;
+  font-size: 1.8rem;
+  padding: 14px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -69,16 +71,11 @@
 }
 
 .red-bg {
-  background: #ff6b6b;
+  background: linear-gradient(135deg, #ff6b6b, #ff4d4f);
 }
 
 .blue-bg {
-  background: #4d79ff;
-}
-
-.card-text {
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(135deg, #4d79ff, #5f9cff);
 }
 
 .card-title {
@@ -88,11 +85,12 @@
 }
 
 .card-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #6c6c80;
 }
 
-/* Image Side */
+/* ================= IMAGE SIDE ================= */
+
 .image-side {
   flex: 1;
   position: relative;
@@ -102,8 +100,8 @@
 }
 
 .circle-bg {
-  width: 450px;
-  height: 450px;
+  width: 420px;
+  height: 420px;
   background: radial-gradient(circle at center, #d9e4ff, #a3c1ff);
   border-radius: 50%;
   position: absolute;
@@ -114,7 +112,7 @@
 }
 
 .floating-img {
-  width: 350px;
+  width: clamp(220px, 30vw, 360px);
   position: relative;
   z-index: 2;
   animation: float 4s ease-in-out infinite;
@@ -126,15 +124,16 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-18px);
   }
 }
 
-/* Responsive */
-@media screen and (max-width: 1200px) {
-  .hero-container {
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .Catalog-container {
     flex-direction: column-reverse;
-    padding: 60px 20px;
     text-align: center;
   }
 
@@ -146,26 +145,45 @@
     justify-content: center;
   }
 
-  .image-side {
-    margin-bottom: 40px;
+  .circle-bg {
+    width: 320px;
+    height: 320px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .title {
-    font-size: 2.2rem;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-
-  .floating-img {
-    width: 250px;
+/* Mobile */
+@media (max-width: 768px) {
+  .Catalog-container {
+    padding: 60px 16px;
   }
 
   .circle-bg {
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .card {
+    padding: 15px 18px;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .circle-bg {
+    width: 220px;
+    height: 220px;
+  }
+
+  .floating-img {
+    width: 200px;
   }
 }

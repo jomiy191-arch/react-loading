@@ -1,0 +1,229 @@
+/* ===== Reset va asosiy stil ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ===== Main Section ===== */
+.enjoy-section {
+    padding: 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #eef2ff 50%, #f8f9ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.enjoy-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: 
+      radial-gradient(circle at 10% 20%, rgba(84, 84, 212, 0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(84, 84, 212, 0.05) 0%, transparent 20%);
+}
+
+/* Floating shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape1 {
+  width: 80px; height: 80px;
+  background: #5454D4;
+  top: 20%; left: 10%;
+}
+
+.shape2 {
+  width: 120px; height: 120px;
+  background: #8A2BE2;
+  bottom: 15%; right: 15%;
+  animation-delay: 2s;
+}
+
+/* ===== Container ===== */
+.enjoy-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* ===== Text ===== */
+.enjoy-text {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.enjoy-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(270deg, #5454D4, #8A2BE2, #00F0FF, #5454D4);
+  background-size: 800% 800%;
+  animation: gradientShift 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+
+.enjoy-text p {
+  font-size: 1.2rem;
+  color: #4a5568;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.enjoy-button {
+  padding: 12px 30px;
+  background: linear-gradient(45deg,#5454D4,#8A2BE2);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.enjoy-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(84,84,212,0.3);
+}
+
+/* ===== Images ===== */
+.enjoy-images {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap; /* Yonma-yon turadi */
+}
+
+.image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+/* .image-container:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(84,84,212,0.2);
+  filter: brightness(1.05);
+} */
+
+.image-container::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(84,84,212,0.05), rgba(138,43,226,0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
+.image-large {
+  width: 400px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.image-small {
+  width: 650px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+/* ===== Responsive ===== */
+
+/* Telefonlar - tagma-tag */
+@media (max-width: 768px) {
+  .enjoy-section {
+    padding: 60px 15px;
+  }
+
+  .enjoy-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .enjoy-text p {
+    font-size: 1rem;
+  }
+
+  .enjoy-images {
+    flex-direction: column; /* rasm tagma-tag */
+    gap: 30px;
+  }
+
+  .image-large, .image-small {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+}
+
+/* Mobil / kichik planshetlar - yonma-yon */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .enjoy-images {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .image-large {
+    width: 300px;
+    height: 380px;
+  }
+
+  .image-small {
+    width: 500px;
+    height: 320px;
+  }
+}
+
+/* Katta ekranlar */
+@media (min-width: 1025px) {
+  .enjoy-images {
+    gap: 80px;
+  }
+
+  .image-large {
+    width: 400px;
+    height: 480px;
+  }
+
+  .image-small {
+    width: 650px;
+    height: 400px;
+  }
+}

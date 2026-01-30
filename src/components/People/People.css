@@ -1,0 +1,170 @@
+/* ===== Umumiy reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== Animatsiyalar ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.people-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 100px 80px;
+    background-image: url('./Images/7.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.people-section .people-overlay {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;     /* Markazlashtirish */
+    padding: 0 10px;    /* Ichki padding */
+}
+
+/* ===== Kontent ===== */
+.people-content {
+    text-align: left;
+    animation: fadeIn 1s ease-out forwards;
+    color: white;
+    max-width: 700px;
+    width: 100%;
+}
+
+.people-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 12px rgb(37, 32, 198);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    animation: slideInLeft 0.8s ease-out 0.3s both;
+}
+
+.people-content p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 40px;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+/* ===== Tugma ===== */
+.people-button {
+    background: linear-gradient(45deg,#FF6B6B,#FF8E53);
+    color: white;
+    border: none;
+    padding: 18px 42px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 
+        0 8px 25px rgba(255,107,107,0.4),
+        0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out 0.7s both;
+}
+
+.people-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.people-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 15px 35px rgba(255,107,107,0.6),
+        0 8px 20px rgba(0,0,0,0.15);
+    animation: pulse 1.5s infinite;
+}
+
+.people-button:hover::before {
+    left: 100%;
+}
+
+.people-button:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 5px 15px rgba(255,107,107,0.4),
+        0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== Media Queries ===== */
+
+/* Large screens */
+@media (max-width: 1200px) {
+    .people-section { padding: 70px 20px; }
+    .people-content h1 { font-size: 2.8rem; }
+}
+
+/* Medium screens / Tablets */
+@media (max-width: 992px) {
+    .people-section { padding: 60px 20px; }
+    .people-content h1 { font-size: 2.4rem; }
+    .people-content p { font-size: 1.1rem; }
+    .people-button { padding: 16px 36px; font-size: 1rem; }
+}
+
+/* Small screens / Large phones */
+@media (max-width: 768px) {
+    .people-section { padding: 50px 15px; justify-content: center; }
+    .people-content { text-align: center; }
+    .people-content h1 { font-size: 2rem; }
+    .people-content p { font-size: 1rem; }
+    .people-button { padding: 15px 32px; font-size: 0.95rem; }
+}
+
+/* Extra small screens / Mobile phones */
+@media (max-width: 480px) {
+    .people-section { padding: 40px 10px; min-height: auto; }
+    .people-content h1 { font-size: 1.8rem; line-height: 1.3; }
+    .people-content p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+    .people-button { padding: 14px 28px; font-size: 0.9rem; width: 100%; max-width: 250px; }
+}
+
+/* ===== Dark Mode ===== */
+@media (prefers-color-scheme: dark) {
+    .people-section {
+        background: url('./Images/7.svg') no-repeat center center/cover;
+    }
+    .people-section::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 2;
+    }
+    .people-content h1 { color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .people-content p { color: rgba(255,255,255,0.85); }
+}

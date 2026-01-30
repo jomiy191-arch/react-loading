@@ -1,57 +1,109 @@
 .every-container {
   background-color: #3b3b6b;
-  padding: 50px 20px;
+  padding: 100px 20px;
   text-align: center;
   color: white;
 }
 
 .every-title {
-  font-size: 4rem;
-  font-weight: 200;
-  margin-bottom: 35px;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 300;
+  margin-bottom: 50px;
 }
+
+/* Row */
+.every-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* responsive uchun */
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+}
+
+/* Card */
+.every-card {
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  border-radius: 14px;
+  min-width: 260px;
+  height: auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex: 1 1 280px; /* responsive card width */
+  max-width: 360px;
+}
+
+.every-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon */
 .every-icon {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.every-row {
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* kartalar orasidagi bo‘shliqni kattaroq qildik */
+/* Ranglar */
+.red-bg {
+  border-left: 6px solid #ff4d4f;
+}
+.purple-bg {
+  border-left: 6px solid #7265e6;
+}
+.yellow-bg {
+  border-left: 6px solid #ffcc00;
+}
+.green-bg {
+  border-left: 6px solid #52c41a;
 }
 
-.every-card {
-    margin-top: 20px;
-  background-color: white;
-  color: black;
-  display: flex;
-  align-items: center;  
-  gap: 20px; /* ikonka va matn orasini kattaroq qildik */
-  padding: 25px 35px; /* paddingni oshirdik */
-  border-radius: 15px;
-  min-width: 250px;
-  height: 90px; /* kartani kengaytirdik */
-  font-size: 1.6rem; /* matn kattaligi */
-  font-weight: 600;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+/* ================== RESPONSIVE ================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .every-card {
+    font-size: 1.1rem;
+    padding: 18px 20px;
+  }
 }
 
-.every-card:hover {
-  transform: translateY(-8px); /* hover effektni kattaroq qildik */
-  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+/* Mobile */
+@media (max-width: 768px) {
+  .every-row {
+    gap: 20px;
+  }
+
+  .every-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 16px 18px;
+  }
+
+  .every-icon {
+    font-size: 1.8rem;
+  }
 }
 
-.every-icon {
-  font-size: 2rem; /* ikonka kattaligi */
-}
+/* Small mobile */
+@media (max-width: 480px) {
+  .every-title {
+    margin-bottom: 30px;
+  }
 
-/* Ranglar (chap chiziq) */
-.red-bg { border-left: 6px solid #ff4d4f; }
-.purple-bg { border-left: 6px solid #7265e6; }
-.yellow-bg { border-left: 6px solid #ffcc00; }
-.green-bg { border-left: 6px solid #52c41a; }
+  .every-card {
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+}
