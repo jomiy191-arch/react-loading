@@ -11,38 +11,41 @@ import Enjoy from './components/Enjoy/Enjoy';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';
+import Loading from './components/Loading/Loading'; // ✅ loading componentni import qilamiz
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
     });
 
-    
     const timer = setTimeout(() => {
-      setLoading(false);
+      setLoading(false); // 2 soniyadan keyin loadingni o‘chiradi
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  // Conditional rendering: loading true bo‘lsa Loading component chiqadi
+  if (loading) {
+    return <Loading />;
+  }
+
+  // Loading tugagach asosiy content render bo‘ladi
   return (
     <>
-
-          <Header />
-          <Hero />
-          <Catalog />
-          <Every />
-          <Enjoy />
-          <People />
-          <Testimonials />
-          <Get />
-
+      <Header />
+      <Hero />
+      <Catalog />
+      <Every />
+      <Enjoy />
+      <People />
+      <Testimonials />
+      <Get />
     </>
   );
 }
