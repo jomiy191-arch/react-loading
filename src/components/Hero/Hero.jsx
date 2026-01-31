@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -45,18 +44,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero"id="fon">
+    <section className="hero" id="hero">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 4000 }}
-        loop={true}
+        loop
         pagination={{ clickable: true }}
-        navigation={true}
+        navigation
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className="hero-container">
-              {/* Matn pastdan tepaga chiqadi */}
               <div className="hero-left" data-aos="fade-up">
                 <h1>{slide.title}</h1>
                 <p>{slide.desc}</p>
@@ -67,9 +65,12 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Rasm sekin ko‘tarilishi */}
-              <div className="hero-right" data-aos="fade-up" data-aos-delay="200">
-                <img src={slide.img} alt="headphone" />
+              <div
+                className="hero-right"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <img src={slide.img} alt="Headphone" />
               </div>
             </div>
           </SwiperSlide>
