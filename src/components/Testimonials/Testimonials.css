@@ -10,7 +10,7 @@
   padding: 0 20px;
 }
 
-/* Section header */
+
 .testimonials-header {
   text-align: center;
   margin-bottom: 50px;
@@ -96,18 +96,115 @@
 .slick-next:before {
   color: #333;
 }
+/* =========================
+   DESKTOP / NOTEBOOK (default)
+========================= */
+/* Sizda hozirgi stillar yetarli */
 
-/* Responsive */
-@media (max-width: 768px) {
-  .testimonial-card {
-    padding: 20px 15px;
+/* =========================
+   PLANSHTET (max-width: 1024px)
+========================= */
+@media (max-width: 1024px) {
+  .testimonials-section {
+    padding: 100px 0;
   }
 
   .testimonials-header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .testimonial-card {
+    min-height: 220px;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* =========================
+   KATTA TELEFON / KICHIK PLANSHTET (max-width: 768px)
+========================= */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 80px 0;
+  }
+
+  .testimonials-header {
+    margin-bottom: 35px;
+  }
+
+  .testimonials-header h1 {
+    font-size: 1.9rem;
   }
 
   .testimonials-header p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .author-photo {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* =========================
+   TELEFON (max-width: 480px)
+========================= */
+@media (max-width: 480px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testimonials-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .testimonials-header p {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card {
+    border-radius: 12px;
+    padding: 18px 15px;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .testimonial-author {
+    align-items: flex-start;
+  }
+
+  .author-photo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .author-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .author-info span {
+    font-size: 0.8rem;
+  }
+
+  .slick-dots {
+    bottom: -35px;
   }
 }
